@@ -83,6 +83,8 @@ const modalContent = {
 };
 
 function showModal(id) {
+  playButtonSound();
+  
   const content = modalContent[id];
   if (content) {
     modalTitle.textContent = content.title;
@@ -156,20 +158,6 @@ manager.onLoad = function () {
   animateObjectsGrowth();
 //   setupArrowButtonListeners();
 };
-
-enterButton.addEventListener("click", () => {
-  playEnterSound(); // Add this line to play the sound
-  // playButtonSound(); // This plays the button sound
-
-  gsap.to(loadingScreen, {
-    opacity: 0,
-    duration: 2,
-    onComplete: () => {
-      loadingScreen.remove();
-      document.getElementById("mainContent").style.display = "block";
-    },
-  });
-});
 
 const loader = new GLTFLoader();
 
