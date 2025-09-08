@@ -694,7 +694,7 @@ document.addEventListener('DOMContentLoaded', initAudio);
 function animate() {
   // View Controls
     if (is3DMode) {
-        controls.maxDistance = 60;
+        controls.maxDistance = 90;
         controls.minDistance = 3;
         controls.minPolarAngle = THREE.MathUtils.degToRad(35);
         controls.maxPolarAngle = THREE.MathUtils.degToRad(70);
