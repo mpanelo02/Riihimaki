@@ -641,7 +641,7 @@ function initAudio() {
     enterSound = document.getElementById('enterSound');
 
     // Set volume levels (0.0 to 1.0)
-    buttonSound.volume = 0.05; // Adjust as needed
+    buttonSound.volume = 0.1; // Adjust as needed
     enterSound.volume = 0.05; // Lower volume for PlantsVsZombies sound
 
     // Set the enterSound to loop continuously
