@@ -589,6 +589,7 @@ updateDateTime();
 setInterval(updateDateTime, 1000);
 
 enterButton.addEventListener("click", () => {
+  playEnterSound();
     playButtonSound();
 
     gsap.to(loadingScreen, {
