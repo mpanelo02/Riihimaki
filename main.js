@@ -177,7 +177,6 @@ loader.load( './RiihimakiEverything.glb', function ( glb ) {
   
   glb.scene.traverse((child) => {
 
-
     if (intersectObjectsNames.includes(child.name)) {
       intersectObjects.push(child);
     }
@@ -186,7 +185,6 @@ loader.load( './RiihimakiEverything.glb', function ( glb ) {
       child.castShadow = true;
       child.receiveShadow = true;
     }
-
 
   });
   scene.add( glb.scene );
@@ -202,7 +200,6 @@ loader.load('./Riihimaki1F.glb', function(gltf) {
   floorOneModel = gltf.scene;
   floorOneModel.traverse((child) => {
 
-
     if (intersectObjectsNames.includes(child.name)) {
       intersectObjects.push(child);
     }
@@ -211,7 +208,6 @@ loader.load('./Riihimaki1F.glb', function(gltf) {
       child.castShadow = true;
       child.receiveShadow = true;
     }
-
 
   });
   scene.add(floorOneModel);
@@ -224,13 +220,45 @@ loader.load('./Riihimaki1F.glb', function(gltf) {
 });
 loader.load('./Riihimaki2F.glb', function(gltf) {
   floorTwoModel = gltf.scene;
+  floorTwoModel.traverse((child) => {
+
+    if (intersectObjectsNames.includes(child.name)) {
+      intersectObjects.push(child);
+    }
+
+    if (child.isMesh) {
+      child.castShadow = true;
+      child.receiveShadow = true;
+    }
+
+  });
   scene.add(floorTwoModel);
+  modelsLoaded++;
+  checkAllModelsLoaded();
+}, undefined, function ( error ) {
+  console.error( error );
   modelsLoaded++;
   checkAllModelsLoaded();
 });
 loader.load('./Riihimaki3F.glb', function(gltf) {
   floorThreeModel = gltf.scene;
+  floorThreeModel.traverse((child) => {
+
+    if (intersectObjectsNames.includes(child.name)) {
+      intersectObjects.push(child);
+    }
+
+    if (child.isMesh) {
+      child.castShadow = true;
+      child.receiveShadow = true;
+    }
+
+  });
   scene.add(floorThreeModel);
+  modelsLoaded++;
+  checkAllModelsLoaded();
+}, undefined, function ( error ) {
+  console.error( error );
   modelsLoaded++;
   checkAllModelsLoaded();
 });
@@ -260,13 +288,45 @@ loader.load('./Riihimaki4F.glb', function(gltf) {
 });
 loader.load('./Riihimaki5F.glb', function(gltf) {
   floorFiveModel = gltf.scene;
+  floorFiveModel.traverse((child) => {
+
+    if (intersectObjectsNames.includes(child.name)) {
+      intersectObjects.push(child);
+    }
+
+    if (child.isMesh) {
+      child.castShadow = true;
+      child.receiveShadow = true;
+    }
+
+  });
   scene.add(floorFiveModel);
+  modelsLoaded++;
+  checkAllModelsLoaded();
+}, undefined, function ( error ) {
+  console.error( error );
   modelsLoaded++;
   checkAllModelsLoaded();
 });
 loader.load('./Riihimaki6F.glb', function(gltf) {
   floorSixModel = gltf.scene;
+  floorSixModel.traverse((child) => {
+
+    if (intersectObjectsNames.includes(child.name)) {
+      intersectObjects.push(child);
+    }
+
+    if (child.isMesh) {
+      child.castShadow = true;
+      child.receiveShadow = true;
+    }
+
+  });
   scene.add(floorSixModel);
+  modelsLoaded++;
+  checkAllModelsLoaded();
+}, undefined, function ( error ) {
+  console.error( error );
   modelsLoaded++;
   checkAllModelsLoaded();
 });
@@ -618,7 +678,6 @@ function toggleTheme() {
     document.getElementById('vantaa-date-container'),
     document.getElementById('vantaa-time-container'),
     // document.getElementById('level-container'),
-
 
   ];  
 
