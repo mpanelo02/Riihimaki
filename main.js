@@ -6,6 +6,10 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 // import { RectAreaLightHelper } from 'three/addons/helpers/RectAreaLightHelper.js';
 
 const scene = new THREE.Scene();
+// scene.background = new THREE.Color(0xdda0dd); // Thistle
+// scene.background = new THREE.Color(0xee82ee); // Violet
+// scene.background = new THREE.Color(0xe6e6fa); // Lavender
+scene.background = new THREE.Color(0x9999cc); // Dark Lavender
 const canvas = document.getElementById("experience-canvas");
 const sizes = {
     width: window.innerWidth,
@@ -155,9 +159,30 @@ manager.onLoad = function () {
     opacity: 1,
     duration: 0,
   });
-  animateObjectsGrowth();
 //   setupArrowButtonListeners();
 };
+
+
+enterButton.addEventListener("click", () => {
+  playEnterSound();
+    playButtonSound();
+
+    gsap.to(loadingScreen, {
+        opacity: 0,
+        duration: 1,
+        onComplete: () => {
+          
+            loadingScreen.remove();
+            document.getElementById("mainContent").style.display = "block";
+
+            // Start growth animation after 500 milliseconds
+            setTimeout(() => {
+                animateObjectsGrowth();
+            }, 500);
+        },
+    });
+
+});
 
 const loader = new GLTFLoader();
 
@@ -323,7 +348,7 @@ loader.load('./Riihimaki6F.glb', function(gltf) {
 const sun = new THREE.DirectionalLight( 0xFFFFFF );
 sun.castShadow = true;
 // sun.position.set( -2, 5, -2 );
-sun.position.set( -40, 40, 40 );
+sun.position.set( -20, 50, 30 );
 sun.target.position.set( 0, 0, 0 );
 sun.shadow.mapSize.width = 4096;
 sun.shadow.mapSize.height = 4096;
@@ -588,26 +613,6 @@ function updateDateTime() {
 updateDateTime();
 setInterval(updateDateTime, 1000);
 
-enterButton.addEventListener("click", () => {
-  playEnterSound();
-    playButtonSound();
-
-    gsap.to(loadingScreen, {
-        opacity: 0,
-        duration: 1,
-        onComplete: () => {
-          
-            loadingScreen.remove();
-            document.getElementById("mainContent").style.display = "block";
-
-            // Start growth animation after 500 milliseconds
-            setTimeout(() => {
-                animateObjectsGrowth();
-            }, 500);
-        },
-    });
-
-});
 
 const themeToggleButton = document.querySelector(".theme-mode-toggle-button");
 const firstIcon = document.querySelector(".first-icon");
